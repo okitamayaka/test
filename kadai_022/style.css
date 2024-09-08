@@ -1,0 +1,110 @@
+/* 基本スタイル */
+body{
+  /*h1、p、body要素の上下左右余白（margin）を0にしてください。*/
+  /*中身の要素が中央揃えになるようにします。*/
+  margin: 0;
+  border: 3px solid grey;
+  justify-content: center; /* 横方向に中央揃え */
+  text-align: center;/* 縦方向に中央揃え */
+}
+
+header{
+   /*下の余白を20pxにします。*/
+   /*中の要素が中央揃えになるようにします。*/
+   margin: 0 auto 20px;
+   background-color: rgb(244, 79, 79);
+   /*h1要素内のスタイルを以下のように設定します。*/
+   color: rgb(255, 255, 255);
+}
+
+main{
+  /*main要素全体について、以下のスタイルを設定します。*/
+  /*main要素内の余白を上下左右とも10pxにします。*/
+  padding: 10px;
+}
+
+footer{
+  /*footer要素内には、以下のスタイルを設定します。*/
+  background-color: rgb(244, 79, 79);
+  /*a要素には、以下のスタイルを設定します。*/
+  color: rgb(255, 255, 255);
+}
+/* コンテンツスタイル */
+#parent{
+  /*id名parentの要素について、以下のスタイルを設定します。*/
+  display: flex;
+  /*justify-contentプロパティでFlexboxコンテナの子要素（Flexアイテム）
+  「一番左と一番右のアイテムも含め、均等な間隔で配置する」値を設定します。*/
+  justify-content: space-around;
+  flex-wrap: nowrap;/*折り返しせず1行にまとめる*/
+}
+
+/*class名contentsの要素について、以下のスタイルを設定します。*/
+.contents{
+  flex-basis: 25%;
+  margin: 20px 0;/*要素外の余白は上下20px、左右0にします*/
+  padding: 10px 15px ;/*要素内の余白は上下10px、左右15pxにします。*/
+}
+
+.contents:not(p){
+  border: 3px solid rgb(238, 204, 204);
+}
+
+.contents p {
+  margin: 0; /* p要素の上下左右の余白を無くす */
+  padding: 0; /* p要素の内側の余白も無くす */
+}
+
+a:hover{
+  color: rgb(245, 178, 168);
+}
+
+a:visited{
+  color: rgb(193, 234, 251);
+}
+
+/*Flexboxコンテナであるid名parent内の要素が縦に並ぶようにします。*/
+.contents img{
+  margin: 1opx 0;
+  width: 70%;
+}
+
+/*p:nth-of-type(2): .contentsクラス内の2番目のp要素を指定しています。*/
+/*::first-letter: 指定した要素の最初の文字（今回の例では「傘」）
+にスタイルを適用するために使用します。*/
+.contents p:nth-of-type(2)::first-letter {
+  font-weight: bold; /* 太字 */
+  color: rgb(97, 206, 249); /* 文字色 */
+}
+
+
+/* メディアクエリ */
+/*画面幅768px以下になったら表示が変わるように
+ブレークポイントを設定します。*/
+@media screen and (max-width: 768px) {
+  #parent{
+     /* 親要素のフレックスボックスの方向を縦並びに変更 */
+     flex-direction: column;
+     /* 子要素同士のスペースも確保 */
+     align-items: center;
+  }
+  h2{
+    font-size: 30px;
+  }
+  p{
+    font-size: 25px;
+  }
+}
+
+h2{
+  font-size: 25px;
+  /*h2要素のフォントサイズを25pxにし、
+  下線（太さ3px、点線、色rgb(236, 122, 122)）を引きます。*/
+  border-bottom: 3px dotted  rgb(236, 122, 122);
+}
+
+h2::before{
+  /*h2要素の前に「●」記号を表示します。色はrgb(239, 111, 139)とします。*/
+  content: "●";
+  color: rgb(239, 111, 139);
+}
